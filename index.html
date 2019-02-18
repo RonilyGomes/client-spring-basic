@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+    <title>Projeto final de Progração distribuída</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,10 +21,10 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-6">
-              <h2><b>Pessoas</b></h2>
+              <h2><b>Notícias</b></h2>
 		        </div>
 		        <div class="col-sm-6">
-              <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Novo contato</span></a>
+              <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Nova notícia</span></a>
 		        </div>
           </div>
         </div>
@@ -38,10 +38,10 @@
       						<label for="selectAll"></label>
       					</span>
       				</th>
-              <th>Nome</th>
-              <th>Sobrenome</th>
-              <th>E-mail</th>
-              <th>Telefone</th>
+              <th>Autor</th>
+              <th>Título</th>
+              <th>Data da Postagem</th>
+              <th>Conteúdo</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -55,33 +55,29 @@
     	<div id="addEmployeeModal" class="modal fade">
     		<div class="modal-dialog">
     			<div class="modal-content">
-    				<form method="POST" action="http://127.0.0.1:3000/api/v1/people" id="form-person-save">
+    				<form method="POST" action="http://127.0.0.1:3000/api/v1/news" id="form-news-save">
     					<div class="modal-header">
-    						<h4 class="modal-title">Adicionar pessoa</h4>
+    						<h4 class="modal-title">Adicionar notícia</h4>
     						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     					</div>
     					<div class="modal-body">
     						<div class="form-group">
-    							<label>Nome</label>
-    							<input type="text" class="form-control" name="name" id="person_name" required>
+    							<label>Autor</label>
+    							<input type="text" class="form-control" name="author" id="news_author">
     						</div>
     						<div class="form-group">
-    							<label>Apelido</label>
-    							<input type="text" class="form-control" name="nickname" id="person_nickname" required>
+    							<label>Título</label>
+    							<input type="text" class="form-control" name="title" id="news_title">
     						</div>
     						<div class="form-group">
-    							<label>E-mail</label>
-    							<input type="email" class="form-control" name="email" id="person_email" required>
-    						</div>
-    						<div class="form-group">
-    							<label>Phone</label>
-    							<input type="text" class="form-control" name="phone" id="person_phone" required>
+    							<label>Conteúdo</label>
+                  <textarea class="form-control" rows="5" iname="content" id="news_content" style="resize: none;"></textarea>
     						</div>
     					</div>
     					<div class="modal-footer">
     						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
     						<input type="submit" class="btn btn-success"
-                onclick="event.preventDefault();" value="Adicionar" id="person_save">
+                onclick="event.preventDefault();" value="Adicionar" id="news_save">
     					</div>
     				</form>
     			</div>
@@ -90,22 +86,7 @@
 
      <!-- Edit Modal HTML -->
     	<div id="editEmployeeModal" class="modal fade">
-    		<div class="modal-dialog">
-    			<div class="modal-content">
-    				<form>
-    					<div class="modal-header">
-    						<h4 class="modal-title">Edit Employee</h4>
-    						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    					</div>
-    					<div class="modal-body" id="modal-body-edit">
-    						<!-- conteudo gerado dinamicamente -->
-    					</div>
-    					<div class="modal-footer" id="modal-footer-edit">
-                <!-- conteudo gerado dinamicamente -->
-    					</div>
-    				</form>
-    			</div>
-    		</div>
+          <!-- conteudo gerado dinamicamente -->
     	</div>
 
        <!-- Delete Modal HTML -->
@@ -114,11 +95,11 @@
     			<div class="modal-content">
     				<form>
     					<div class="modal-header">
-    						<h4 class="modal-title">Remover pessoa</h4>
+    						<h4 class="modal-title">Remover notícia</h4>
     						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     					</div>
     					<div class="modal-body">
-    						<p>Tem certeza de que deseja excluir esses registros?</p>
+    						<p>Tem certeza de que deseja excluir esse registro?</p>
     						<p class="text-warning"><small>Essa ação não pode ser desfeita.</small></p>
     					</div>
     					<div class="modal-footer" id="modal-footer-delete">
